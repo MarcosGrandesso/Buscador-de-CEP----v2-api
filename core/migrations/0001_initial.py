@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             name='endereco',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cep', models.CharField(max_length=7)),
+                ('cep', models.CharField(max_length=10)),
                 ('cidade_estado', models.CharField(max_length=128)),
                 ('bairro', models.CharField(max_length=64)),
                 ('logradouro', models.CharField(max_length=1024)),
