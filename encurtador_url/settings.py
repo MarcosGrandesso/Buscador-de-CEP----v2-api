@@ -30,9 +30,16 @@ SECRET_KEY = 'django-insecure-5+o8&!+t%6uux0q_oqn((^xxz#i1d&7$ra%=(20^5x4zvpmc-a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
+# Password validation
+# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    }
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -132,9 +139,10 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-
-
 ]
+
+STATICFILES_STORAGE = ['whitenoise.django.GzipManifestStaticFilesStorage']
+
 django_on_heroku.settings(locals())
 
 # Default primary key field type

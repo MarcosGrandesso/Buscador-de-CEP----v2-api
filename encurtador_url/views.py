@@ -51,8 +51,6 @@ def buscar_cep(request):
         convertido = json.loads(var)
 
         cep_sem_hifen= cep
-        #barra = '/' # uma tecnica avançada de programaçao orientada a gambiarra
-        #cidade_uf = (convertido['localidade'] +barra+ convertido['uf'])  #concatenando a cidade e estado por uma barra
 
         localidade = endereco.objects.create(cep=cep_sem_hifen, logradouro=convertido['logradouro'], bairro=convertido['bairro'], cidade_estado=convertido['localidade'])
         localidade.save()
